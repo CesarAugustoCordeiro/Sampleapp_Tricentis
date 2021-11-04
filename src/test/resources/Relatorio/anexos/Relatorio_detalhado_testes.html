@@ -1,0 +1,2673 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='yyyy/MM/dd - HH:mm:ss.SSS'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Relatório de Testes - sampleapp_tricentis</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>Relatório de Testes - sampleapp_tricentis</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>2021/10/05 - 15:19:40.264</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>Validando</a></li>
+					<li><a href='#'>Fluxo</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+<div class='col s12 m6 l6 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Features</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+<div class='col s12 m6 l6 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Scenarios</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='child-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> scenario(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>01_Sampleapp_tricentis</span>
+						<span class='test-time'>2021/10/05 - 15:19:40.420</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>2021/10/05 - 15:19:40.420</span>
+	<span class='label end-time'>2021/10/05 - 15:20:24.503</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 44s+83ms</span>
+</div>
+<ul class='collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-1  pass' status='pass' test-id='2'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Validando a pagina Enter Vehicle Data</span><br><span class='author label'>Autor: <span style='font-weight:normal'>Cesar_Augusto</span></span></br><span class='author label'>Categoria: <span style='font-weight:normal'>Validando</span></span></br><span class='author label'>Ambiente: <span style='font-weight:normal'>Tricentis_-_Google_Chrome</span></div>
+			<span class='node-time'>2021/10/05 - 15:19:40.420</span>
+			&middot; <span class='node-duration'>0h 0m 10s+556ms</span>
+			<span class='test-status right pass'>pass</span>
+			<div class='category-list'>
+				<span class='category label'>Validando</span>
+			</div>
+		</div>
+		<ul class='collapsible-body collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2 leaf pass' status='pass' test-id='3'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario acessa a aplicacao</div>
+			<span class='node-time'>2021/10/05 - 15:19:40.420</span>
+			&middot; <span class='node-duration'>0h 0m 6s+79ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:46 PM</td>
+							<td class='step-details'>
+									Navegando para a URI http://sampleapp.tricentis.com/101/app.php
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='4'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida pagina "Enter Vehicle Data"</div>
+			<span class='node-time'>2021/10/05 - 15:19:46.826</span>
+			&middot; <span class='node-duration'>0h 0m 0s+551ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:47 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento [Log do xpath não definido] <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_1.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:47 PM</td>
+							<td class='step-details'>
+									Clicando no elemento [Log do xpath não definido] <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_2.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='5'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Make"</div>
+			<span class='node-time'>2021/10/05 - 15:19:47.439</span>
+			&middot; <span class='node-duration'>0h 0m 0s+204ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:47 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Make <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_3.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='6'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Model"</div>
+			<span class='node-time'>2021/10/05 - 15:19:47.706</span>
+			&middot; <span class='node-duration'>0h 0m 0s+172ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:47 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Model <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_4.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='7'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Cylinder Capacity"</div>
+			<span class='node-time'>2021/10/05 - 15:19:47.940</span>
+			&middot; <span class='node-duration'>0h 0m 0s+187ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:48 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Cylinder Capacity [ccm] <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_5.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='8'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Engine Performance"</div>
+			<span class='node-time'>2021/10/05 - 15:19:48.158</span>
+			&middot; <span class='node-duration'>0h 0m 0s+186ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:48 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Engine Performance [kW] <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_6.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='9'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Date of Manufacture"</div>
+			<span class='node-time'>2021/10/05 - 15:19:48.391</span>
+			&middot; <span class='node-duration'>0h 0m 0s+252ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:48 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Date of Manufacture <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_7.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='10'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Number of Seats"</div>
+			<span class='node-time'>2021/10/05 - 15:19:48.674</span>
+			&middot; <span class='node-duration'>0h 0m 0s+186ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:48 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Number of Seats <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_8.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='11'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Right Hand Drive"</div>
+			<span class='node-time'>2021/10/05 - 15:19:48.938</span>
+			&middot; <span class='node-duration'>0h 0m 0s+172ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:49 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Right Hand Drive <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_9.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='12'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Number Of Seats"</div>
+			<span class='node-time'>2021/10/05 - 15:19:49.141</span>
+			&middot; <span class='node-duration'>0h 0m 0s+186ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:49 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Number of Seats <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_10.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='13'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Fuel Type"</div>
+			<span class='node-time'>2021/10/05 - 15:19:49.359</span>
+			&middot; <span class='node-duration'>0h 0m 0s+218ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:49 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Fuel Type <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_11.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='14'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Payload"</div>
+			<span class='node-time'>2021/10/05 - 15:19:49.624</span>
+			&middot; <span class='node-duration'>0h 0m 0s+204ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:49 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Payload <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_12.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='15'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Total Weight"</div>
+			<span class='node-time'>2021/10/05 - 15:19:49.859</span>
+			&middot; <span class='node-duration'>0h 0m 0s+169ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:50 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Total Weight [kg] <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_13.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='16'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "List Price"</div>
+			<span class='node-time'>2021/10/05 - 15:19:50.075</span>
+			&middot; <span class='node-duration'>0h 0m 0s+203ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:50 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento List Price [$] <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_14.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='17'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "License Plate Number"</div>
+			<span class='node-time'>2021/10/05 - 15:19:50.309</span>
+			&middot; <span class='node-duration'>0h 0m 0s+186ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:50 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento License Plate Number <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_15.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='18'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida campo "Annual Mileage"</div>
+			<span class='node-time'>2021/10/05 - 15:19:50.526</span>
+			&middot; <span class='node-duration'>0h 0m 0s+185ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:50 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Annual Mileage <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_16.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='19'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida o botao next</div>
+			<span class='node-time'>2021/10/05 - 15:19:50.742</span>
+			&middot; <span class='node-duration'>0h 0m 0s+234ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:50 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Next <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/ValidandoapaginaEnterVehicleData/_17.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+	<li class='node level-1  pass' status='pass' test-id='20'>
+		<div class='collapsible-header'>
+			<div class='node-name'>Preenchendo o fluxo</span><br><span class='author label'>Autor: <span style='font-weight:normal'>Cesar_Augusto</span></span></br><span class='author label'>Categoria: <span style='font-weight:normal'>Fluxo</span></span></br><span class='author label'>Ambiente: <span style='font-weight:normal'>Tricentis_-_Google_Chrome</span></div>
+			<span class='node-time'>2021/10/05 - 15:19:52.626</span>
+			&middot; <span class='node-duration'>0h 0m 31s+877ms</span>
+			<span class='test-status right pass'>pass</span>
+			<div class='category-list'>
+				<span class='category label'>Fluxo</span>
+			</div>
+		</div>
+		<ul class='collapsible-body collapsible node-list' data-collapsible='accordion'>
+	<li class='node level-2 leaf pass' status='pass' test-id='21'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario acessa a aplicacao</div>
+			<span class='node-time'>2021/10/05 - 15:19:52.626</span>
+			&middot; <span class='node-duration'>0h 0m 4s+426ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:57 PM</td>
+							<td class='step-details'>
+									Navegando para a URI http://sampleapp.tricentis.com/101/app.php
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='22'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo make com "Audi"</div>
+			<span class='node-time'>2021/10/05 - 15:19:57.086</span>
+			&middot; <span class='node-duration'>0h 0m 0s+274ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:57 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Audi' no ComboBox Make <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_1.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='23'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo model com "Scooter"</div>
+			<span class='node-time'>2021/10/05 - 15:19:57.376</span>
+			&middot; <span class='node-duration'>0h 0m 0s+251ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:57 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Scooter' no ComboBox Model <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_2.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='24'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo cylinder capacity com "600"</div>
+			<span class='node-time'>2021/10/05 - 15:19:57.659</span>
+			&middot; <span class='node-duration'>0h 0m 0s+289ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:57 PM</td>
+							<td class='step-details'>
+									Enviando o texto '600' para o campo Cylinder Capacity <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_3.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='25'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo engine performance com "600"</div>
+			<span class='node-time'>2021/10/05 - 15:19:57.992</span>
+			&middot; <span class='node-duration'>0h 0m 0s+290ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:58 PM</td>
+							<td class='step-details'>
+									Enviando o texto '600' para o campo Engine Performance <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_4.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='26'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Date of Manufacture com "10/02/2021"</div>
+			<span class='node-time'>2021/10/05 - 15:19:58.321</span>
+			&middot; <span class='node-duration'>0h 0m 0s+293ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:58 PM</td>
+							<td class='step-details'>
+									Enviando o texto '10/02/2021' para o campo Date of Manufacture <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_5.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='27'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Number of Seats com "1"</div>
+			<span class='node-time'>2021/10/05 - 15:19:58.650</span>
+			&middot; <span class='node-duration'>0h 0m 0s+244ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:58 PM</td>
+							<td class='step-details'>
+									Selecionando o texto '1' no ComboBox Number Of Seats <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_6.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='28'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona a opcao yes no campo Right Hand Drive</div>
+			<span class='node-time'>2021/10/05 - 15:19:58.941</span>
+			&middot; <span class='node-duration'>0h 0m 0s+269ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:59 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Yes <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_7.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='29'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Number Of Seats com "1"</div>
+			<span class='node-time'>2021/10/05 - 15:19:59.242</span>
+			&middot; <span class='node-duration'>0h 0m 0s+284ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:59 PM</td>
+							<td class='step-details'>
+									Selecionando o texto '1' no ComboBox Number Of Seats <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_8.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='30'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Fuel Type com "Petrol"</div>
+			<span class='node-time'>2021/10/05 - 15:19:59.562</span>
+			&middot; <span class='node-duration'>0h 0m 0s+315ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:19:59 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Petrol' no ComboBox Fuel Type <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_9.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='31'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Payload com "60"</div>
+			<span class='node-time'>2021/10/05 - 15:19:59.908</span>
+			&middot; <span class='node-duration'>0h 0m 0s+286ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:00 PM</td>
+							<td class='step-details'>
+									Enviando o texto '60' para o campo Payload <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_10.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='32'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Total Weight com "600"</div>
+			<span class='node-time'>2021/10/05 - 15:20:00.230</span>
+			&middot; <span class='node-duration'>0h 0m 0s+267ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:00 PM</td>
+							<td class='step-details'>
+									Enviando o texto '600' para o campo Total Weight <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_11.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='33'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo List Price com "600"</div>
+			<span class='node-time'>2021/10/05 - 15:20:00.526</span>
+			&middot; <span class='node-duration'>0h 0m 0s+272ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:00 PM</td>
+							<td class='step-details'>
+									Enviando o texto '600' para o campo List Price <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_12.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='34'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo License Plate Number com "10"</div>
+			<span class='node-time'>2021/10/05 - 15:20:00.837</span>
+			&middot; <span class='node-duration'>0h 0m 0s+257ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:01 PM</td>
+							<td class='step-details'>
+									Enviando o texto '10' para o campo License PlateNumber <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_13.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='35'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Annual Mileage com "100"</div>
+			<span class='node-time'>2021/10/05 - 15:20:01.124</span>
+			&middot; <span class='node-duration'>0h 0m 0s+269ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:01 PM</td>
+							<td class='step-details'>
+									Enviando o texto '100' para o campo Annual Mileage <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_14.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='36'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida obrigatoriedade de campos na aba Enter Vehicle Data</div>
+			<span class='node-time'>2021/10/05 - 15:20:01.437</span>
+			&middot; <span class='node-duration'>0h 0m 0s+675ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='info'>
+							<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+							<td class='timestamp'>3:20:02 PM</td>
+							<td class='step-details'>
+									Campos obrigatorios preenchidos corretamente
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='37'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario clica no botao Next na aba Enter Vehicle Data</div>
+			<span class='node-time'>2021/10/05 - 15:20:02.174</span>
+			&middot; <span class='node-duration'>0h 0m 0s+646ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:02 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Next <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_15.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:02 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Next <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_16.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='38'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo First Name com "Accenture"</div>
+			<span class='node-time'>2021/10/05 - 15:20:02.860</span>
+			&middot; <span class='node-duration'>0h 0m 0s+308ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:03 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'Accenture' para o campo First Name <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_17.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='39'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Last Name com "Automation"</div>
+			<span class='node-time'>2021/10/05 - 15:20:03.243</span>
+			&middot; <span class='node-duration'>0h 0m 0s+342ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:03 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'Automation' para o campo Last Name <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_18.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='40'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Date of Birth com "06/26/1993"</div>
+			<span class='node-time'>2021/10/05 - 15:20:03.617</span>
+			&middot; <span class='node-duration'>0h 0m 0s+352ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:03 PM</td>
+							<td class='step-details'>
+									Enviando o texto '06/26/1993' para o campo Birth Date <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_19.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='41'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario clica na opcao "Male"</div>
+			<span class='node-time'>2021/10/05 - 15:20:04.022</span>
+			&middot; <span class='node-duration'>0h 0m 0s+322ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:04 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Male <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_20.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='42'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Street Address com "Av: Orozimbo Maia"</div>
+			<span class='node-time'>2021/10/05 - 15:20:04.375</span>
+			&middot; <span class='node-duration'>0h 0m 0s+371ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:04 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'Av: Orozimbo Maia' para o campo Street Address <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_21.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='43'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Country com "Brazil"</div>
+			<span class='node-time'>2021/10/05 - 15:20:04.776</span>
+			&middot; <span class='node-duration'>0h 0m 0s+250ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:05 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Brazil' no ComboBox Country <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_22.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='44'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Zip Code com "13035070"</div>
+			<span class='node-time'>2021/10/05 - 15:20:05.073</span>
+			&middot; <span class='node-duration'>0h 0m 0s+409ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:05 PM</td>
+							<td class='step-details'>
+									Enviando o texto '13035070' para o campo Zip Code <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_23.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='45'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo City com "13035070"</div>
+			<span class='node-time'>2021/10/05 - 15:20:05.524</span>
+			&middot; <span class='node-duration'>0h 0m 0s+254ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:05 PM</td>
+							<td class='step-details'>
+									Enviando o texto '13035070' para o campo City <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_24.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='46'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Occupation com "Employee"</div>
+			<span class='node-time'>2021/10/05 - 15:20:05.809</span>
+			&middot; <span class='node-duration'>0h 0m 0s+218ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:06 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Employee' no ComboBox Occupation <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_25.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='47'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario clica no campo "Speeding"</div>
+			<span class='node-time'>2021/10/05 - 15:20:06.059</span>
+			&middot; <span class='node-duration'>0h 0m 0s+235ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:06 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Speeding <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_26.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='48'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Website com "http://sampleapp.tricentis.com/101/app.php"</div>
+			<span class='node-time'>2021/10/05 - 15:20:06.331</span>
+			&middot; <span class='node-duration'>0h 0m 0s+361ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:06 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'http://sampleapp.tricentis.com/101/app.php' para o campo Website <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_27.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='49'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida obrigatoriedade de campos na aba Enter Insurant Data</div>
+			<span class='node-time'>2021/10/05 - 15:20:06.722</span>
+			&middot; <span class='node-duration'>0h 0m 0s+610ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='info'>
+							<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+							<td class='timestamp'>3:20:07 PM</td>
+							<td class='step-details'>
+									Campos obrigatorios preenchidos corretamente
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='50'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario clica no botao Next na aba Enter Insurant Data</div>
+			<span class='node-time'>2021/10/05 - 15:20:07.364</span>
+			&middot; <span class='node-duration'>0h 0m 0s+562ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:07 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Next <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_28.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:07 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Next <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_29.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='51'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Start Date com "11/10/2021"</div>
+			<span class='node-time'>2021/10/05 - 15:20:07.958</span>
+			&middot; <span class='node-duration'>0h 0m 0s+289ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:08 PM</td>
+							<td class='step-details'>
+									Enviando o texto '11/10/2021' para o campo Start Date <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_30.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='52'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Insurance Sum com "3.000.000,00"</div>
+			<span class='node-time'>2021/10/05 - 15:20:08.275</span>
+			&middot; <span class='node-duration'>0h 0m 0s+251ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:08 PM</td>
+							<td class='step-details'>
+									Selecionando o texto '3.000.000,00' no ComboBox Insurance Sum <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_31.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='53'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Merit Rating com "Bonus 1"</div>
+			<span class='node-time'>2021/10/05 - 15:20:08.557</span>
+			&middot; <span class='node-duration'>0h 0m 0s+221ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:08 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Bonus 1' no ComboBox Merit Rating <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_32.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='54'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Damage Insurance com "Partial Coverage"</div>
+			<span class='node-time'>2021/10/05 - 15:20:08.809</span>
+			&middot; <span class='node-duration'>0h 0m 0s+236ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:09 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Partial Coverage' no ComboBox Speeding <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_33.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='55'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona a opcao Euro Protection do campo Optional Products</div>
+			<span class='node-time'>2021/10/05 - 15:20:09.076</span>
+			&middot; <span class='node-duration'>0h 0m 0s+253ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:09 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Euro Protection <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_34.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='56'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona o combobox do campo Courtesy Car com "Yes"</div>
+			<span class='node-time'>2021/10/05 - 15:20:09.359</span>
+			&middot; <span class='node-duration'>0h 0m 0s+219ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:09 PM</td>
+							<td class='step-details'>
+									Selecionando o texto 'Yes' no ComboBox Courtesy Car <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_35.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='57'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida obrigatoriedade de campos na aba Enter Product Data</div>
+			<span class='node-time'>2021/10/05 - 15:20:09.609</span>
+			&middot; <span class='node-duration'>0h 0m 0s+648ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='info'>
+							<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+							<td class='timestamp'>3:20:10 PM</td>
+							<td class='step-details'>
+									Campos obrigatorios preenchidos corretamente
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='58'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario clica no botao Next na aba Enter Product Data</div>
+			<span class='node-time'>2021/10/05 - 15:20:10.288</span>
+			&middot; <span class='node-duration'>0h 0m 0s+510ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:10 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Speeding <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_36.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:10 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Speeding <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_37.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='59'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario seleciona a opcao Unlimited</div>
+			<span class='node-time'>2021/10/05 - 15:20:10.836</span>
+			&middot; <span class='node-duration'>0h 0m 0s+436ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:10 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Select Ultimate <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_38.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:11 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Select Ultimate <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_39.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='60'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida obrigatoriedade de campos na aba Select Price Option</div>
+			<span class='node-time'>2021/10/05 - 15:20:11.310</span>
+			&middot; <span class='node-duration'>0h 0m 0s+662ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='info'>
+							<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+							<td class='timestamp'>3:20:11 PM</td>
+							<td class='step-details'>
+									Campos obrigatorios preenchidos corretamente
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='61'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario clica no botao Next na aba Select Price Option</div>
+			<span class='node-time'>2021/10/05 - 15:20:12.003</span>
+			&middot; <span class='node-duration'>0h 0m 0s+607ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:12 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Next <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_40.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:12 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Next <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_41.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='62'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Email com "sampleapp@tricentis.com"</div>
+			<span class='node-time'>2021/10/05 - 15:20:12.642</span>
+			&middot; <span class='node-duration'>0h 0m 0s+399ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:13 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'sampleapp@tricentis.com' para o campo Email <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_42.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='63'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Phone com "19993997673"</div>
+			<span class='node-time'>2021/10/05 - 15:20:13.069</span>
+			&middot; <span class='node-duration'>0h 0m 0s+323ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:13 PM</td>
+							<td class='step-details'>
+									Enviando o texto '19993997673' para o campo phone <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_43.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='64'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Username com "sampleapp"</div>
+			<span class='node-time'>2021/10/05 - 15:20:13.422</span>
+			&middot; <span class='node-duration'>0h 0m 0s+338ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:13 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'sampleapp' para o campo username <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_44.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='65'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Password com "Sampleapp@123"</div>
+			<span class='node-time'>2021/10/05 - 15:20:13.789</span>
+			&middot; <span class='node-duration'>0h 0m 0s+286ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:14 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'Sampleapp@123' para o campo password <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_45.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='66'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Confirm Password com "Sampleapp@123"</div>
+			<span class='node-time'>2021/10/05 - 15:20:14.105</span>
+			&middot; <span class='node-duration'>0h 0m 0s+277ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:14 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'Sampleapp@123' para o campo confirmpassword <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_46.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='67'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario preenche o campo Comments com "Teste"</div>
+			<span class='node-time'>2021/10/05 - 15:20:14.411</span>
+			&middot; <span class='node-duration'>0h 0m 0s+216ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:14 PM</td>
+							<td class='step-details'>
+									Enviando o texto 'Teste' para o campo [Log do xpath não definido] <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_47.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='68'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida obrigatoriedade de campos na aba Send Quote</div>
+			<span class='node-time'>2021/10/05 - 15:20:14.659</span>
+			&middot; <span class='node-duration'>0h 0m 0s+669ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='info'>
+							<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+							<td class='timestamp'>3:20:15 PM</td>
+							<td class='step-details'>
+									Campos obrigatorios preenchidos corretamente
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='69'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario clica no botao Send na aba Send Quote</div>
+			<span class='node-time'>2021/10/05 - 15:20:15.344</span>
+			&middot; <span class='node-duration'>0h 0m 0s+552ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:15 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Button <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_48.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:15 PM</td>
+							<td class='step-details'>
+									Clicando no elemento Button <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_49.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+	<li class='node level-2 leaf pass' status='pass' test-id='70'>
+		<div class='collapsible-header'>
+			<div class='node-name'>O usuario valida mensagem Sending e-mail success</div>
+			<span class='node-time'>2021/10/05 - 15:20:15.932</span>
+			&middot; <span class='node-duration'>0h 0m 8s+571ms</span>
+			<span class='test-status right pass'>pass</span>
+		</div>
+		<div class='collapsible-body'>
+			<div class='node-steps'>
+				<table class='bordered table-results'>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Timestamp</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class='log' status='pass'>
+							<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+							<td class='timestamp'>3:20:24 PM</td>
+							<td class='step-details'>
+									Validando a existência do elemento Validacao <a data-featherlight='image' style='float: right;padding: 0px;' href='../evidencias/01Sampleapptricentis/Preenchendoofluxo/_50.png'><i class='material-icons'>panorama</i></a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</li>
+		</ul>
+	</li>
+</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><div id='category-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='category-collection' class='category-collection'>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Validando</span>
+						<span class='category-status right'>
+						<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2021/10/05 - 15:19:40.420</td>
+										<td class='linked' test-id='2'>01_Sampleapp_tricentis.Validando a pagina Enter Vehicle Data</span><br><span class='author label'>Autor: <span style='font-weight:normal'>Cesar_Augusto</span></span></br><span class='author label'>Categoria: <span style='font-weight:normal'>Validando</span></span></br><span class='author label'>Ambiente: <span style='font-weight:normal'>Tricentis_-_Google_Chrome</span></td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Fluxo</span>
+						<span class='category-status right'>
+						<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2021/10/05 - 15:19:52.626</td>
+										<td class='linked' test-id='20'>01_Sampleapp_tricentis.Preenchendo o fluxo</span><br><span class='author label'>Autor: <span style='font-weight:normal'>Cesar_Augusto</span></span></br><span class='author label'>Categoria: <span style='font-weight:normal'>Fluxo</span></span></br><span class='author label'>Ambiente: <span style='font-weight:normal'>Tricentis_-_Google_Chrome</span></td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><!-- exception view --><div id='author-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Authors' title='Search Authors'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='author-collection' class='author-collection'>
+				<li class='author displayed active'>
+					<div class='author-heading'>
+						<span class='author-name'>Cesar_Augusto</span>
+						<span class='author-status right'>
+						<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='author-content hide'>
+						<div class='author-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+						<div class='author-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2021/10/05 - 15:19:40.420</td>
+										<td class='linked' test-id='2'>01_Sampleapp_tricentis.Validando a pagina Enter Vehicle Data</span><br><span class='author label'>Autor: <span style='font-weight:normal'>Cesar_Augusto</span></span></br><span class='author label'>Categoria: <span style='font-weight:normal'>Validando</span></span></br><span class='author label'>Ambiente: <span style='font-weight:normal'>Tricentis_-_Google_Chrome</span></td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>2021/10/05 - 15:19:52.626</td>
+										<td class='linked' test-id='20'>01_Sampleapp_tricentis.Preenchendo o fluxo</span><br><span class='author label'>Autor: <span style='font-weight:normal'>Cesar_Augusto</span></span></br><span class='author label'>Categoria: <span style='font-weight:normal'>Fluxo</span></span></br><span class='author label'>Ambiente: <span style='font-weight:normal'>Tricentis_-_Google_Chrome</span></td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='author-name'></h5>
+		</div>
+	</div>
+</div>
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Suites
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Test Methods
+					<div class='panel-lead'>67</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>2021/10/05 - 15:19:40.264</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>2021/10/05 - 15:20:24.503</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 0m 44s+239ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Sistema operacional</td>
+								<td>Windows 10</td>
+							</tr>
+							<tr>
+								<td>Arquitetura do OS</td>
+								<td>amd64</td>
+							</tr>
+							<tr>
+								<td>Versão do OS</td>
+								<td>10.0</td>
+							</tr>
+							<tr>
+								<td>Java Version</td>
+								<td>1.8.0_221</td>
+							</tr>
+							<tr>
+								<td>Usuário de execução</td>
+								<td>ccordeiro</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>Validando</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>Fluxo</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 1,
+				passParent: 1,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				childCount: 2,
+				passChild: 2,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				debugChild: 0,
+				exceptionsChild: 0,
+				grandChildCount: 67,
+				passGrandChild: 67,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				debugGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		<script>
+			var timeline = {
+			        "01_Sampleapp_tricentis":44.083
+			};
+		</script>
+		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+		</script>
+	</body>
+</html>
